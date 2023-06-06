@@ -347,39 +347,6 @@
                     8
                 ]
             ]
-        },
-        {
-            "name": "watergate1",
-            "parameters": [],
-            "qasm_def": "gate watergate1 q0 {}",
-            "coupling_map": [
-                [
-                    9,
-                    6
-                ]
-            ]
-        },
-        {
-            "name": "watergate2",
-            "parameters": [],
-            "qasm_def": "gate watergate2 q0 {}",
-            "coupling_map": [
-                [
-                    10,
-                    7
-                ]
-            ]
-        },
-        {
-            "name": "watergate3",
-            "parameters": [],
-            "qasm_def": "gate watergate3 q0 {}",
-            "coupling_map": [
-                [
-                    11,
-                    8
-                ]
-            ]
         }
     ],
     "local": false,
@@ -491,10 +458,7 @@
         "u2",
         "u3",
         "x",
-        "swap",
-        "watergate1",
-        "watergate2",
-        "watergate3"
+        "swap"
     ],
     "rep_delay_range": [
         0,

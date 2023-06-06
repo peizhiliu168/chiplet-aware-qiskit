@@ -4,7 +4,6 @@ from qiskit import QuantumCircuit, transpile
 from qiskit.circuit import Parameter, Measure
 from qiskit.transpiler import Target, InstructionProperties
 from qiskit.circuit.library import UGate, RZGate, RXGate, RYGate, CXGate, CZGate, SwapGate
-from qiskit.circuit.library.standard_gates.watergate1 import WaterGate1
 
 target = Target(num_qubits=12)
 target.add_instruction(CXGate(), {(0, 1): InstructionProperties(error=.0001, duration=5e-7)})
@@ -120,8 +119,9 @@ qc.x(1)
 qc.h(0)
 qc.h(6)
 
-qc.swap(8,10)
-qc.swap(7,11)
+qc.h(8)
+qc.swap(8,11)
+qc.swap(7,10)
 qc.h(8)
 qc.h(7)
 
@@ -132,6 +132,14 @@ backend = FakeChiplet()
 qc_basis = transpile(qc, backend=backend, optimization_level=3)
 img = qc_basis.draw(output='mpl')
 img.savefig("circuit1.png")
+
+qc_basis = transpile(qc_basis, 
+                     backend=backend, 
+                     optimization_level=3, 
+                     initial_layout=[0,1,2,3,4,5,6,8,7,9, 11, 10])
+# [0,6,2,10,8,7,1,5,4,11,3,9]
+img = qc_basis.draw(output='mpl')
+img.savefig("circuit2.png")
 
 # qc1 = QuantumCircuit(12)
 # qc1.i(0)
