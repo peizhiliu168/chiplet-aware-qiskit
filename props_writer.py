@@ -18,7 +18,7 @@ def parse_json(file_name):
         if keys == "gates":
             data[keys] = insert_gates(data[keys])
     
-    out_file = open("modified_confs.json", "w")
+    out_file = open("modified_props_chiplet.json", "w")
   
     json.dump(data, out_file, indent=4)
   
