@@ -1,0 +1,506 @@
+{
+    "backend_name": "fake_chiplet",
+    "backend_version": "0.0.1",
+    "n_qubits": 12,
+    "basis_gates": [
+        "id",
+        "rz",
+        "sx",
+        "x",
+        "cx",
+        "water"
+    ],
+    "gates": [
+        {
+            "name": "id",
+            "parameters": [],
+            "qasm_def": "gate id q { U(0, 0, 0) q; }",
+            "coupling_map": [
+                [
+                    0
+                ],
+                [
+                    1
+                ],
+                [
+                    2
+                ],
+                [
+                    3
+                ],
+                [
+                    4
+                ],
+                [
+                    5
+                ],
+                [
+                    6
+                ],
+                [
+                    7
+                ],
+                [
+                    8
+                ]
+            ]
+        },
+        {
+            "name": "water",
+            "parameters": [],
+            "qasm_def": "gate water q { U(0, 0, 0) q; }",
+            "coupling_map": [
+                [
+                    8
+                ]
+            ]
+        },
+        {
+            "name": "rz",
+            "parameters": [
+                "theta"
+            ],
+            "qasm_def": "gate rz(theta) q { U(0, 0, theta) q; }",
+            "coupling_map": [
+                [
+                    0
+                ],
+                [
+                    1
+                ],
+                [
+                    2
+                ],
+                [
+                    3
+                ],
+                [
+                    4
+                ],
+                [
+                    5
+                ],
+                [
+                    6
+                ],
+                [
+                    7
+                ],
+                [
+                    8
+                ]
+            ]
+        },
+        {
+            "name": "sx",
+            "parameters": [],
+            "qasm_def": "gate sx q { U(pi/2, 3*pi/2, pi/2) q; }",
+            "coupling_map": [
+                [
+                    0
+                ],
+                [
+                    1
+                ],
+                [
+                    2
+                ],
+                [
+                    3
+                ],
+                [
+                    4
+                ],
+                [
+                    5
+                ],
+                [
+                    6
+                ],
+                [
+                    7
+                ],
+                [
+                    8
+                ]
+            ]
+        },
+        {
+            "name": "x",
+            "parameters": [],
+            "qasm_def": "gate x q { U(pi, 0, pi) q; }",
+            "coupling_map": [
+                [
+                    0
+                ],
+                [
+                    1
+                ],
+                [
+                    2
+                ],
+                [
+                    3
+                ],
+                [
+                    4
+                ],
+                [
+                    5
+                ],
+                [
+                    6
+                ],
+                [
+                    7
+                ],
+                [
+                    8
+                ]
+            ]
+        },
+        {
+            "name": "measure",
+            "parameters": [],
+            "qasm_def": "measure q[0] -> c[0];",
+            "coupling_map": [
+                [
+                    0
+                ],
+                [
+                    1
+                ],
+                [
+                    2
+                ],
+                [
+                    3
+                ],
+                [
+                    4
+                ],
+                [
+                    5
+                ],
+                [
+                    6
+                ],
+                [
+                    7
+                ],
+                [
+                    8
+                ]
+            ]
+        },
+        {
+            "name": "cx",
+            "parameters": [],
+            "qasm_def": "gate cx q0, q1 { CX q0, q1; }",
+            "coupling_map": [
+                [
+                    0,
+                    3
+                ],
+                [
+                    3,
+                    0
+                ],
+                [
+                    1,
+                    4
+                ],
+                [
+                    4,
+                    1
+                ],
+                [
+                    2,
+                    5
+                ],
+                [
+                    5,
+                    2
+                ],
+                [
+                    3,
+                    6
+                ],
+                [
+                    6,
+                    3
+                ],
+                [
+                    4,
+                    7
+                ],
+                [
+                    7,
+                    4
+                ],
+                [
+                    5,
+                    8
+                ],
+                [
+                    8,
+                    5
+                ],
+                [
+                    3,
+                    4
+                ],
+                [
+                    4,
+                    3
+                ],
+                [
+                    4,
+                    5
+                ],
+                [
+                    5,
+                    4
+                ]
+            ]
+        },
+        {
+            "name": "swap",
+            "parameters": [],
+            "qasm_def": "gate swap q0, q1 { SWAP q0, q1; }",
+            "coupling_map": [
+                [
+                    0,
+                    3
+                ],
+                [
+                    3,
+                    0
+                ],
+                [
+                    1,
+                    4
+                ],
+                [
+                    4,
+                    1
+                ],
+                [
+                    2,
+                    5
+                ],
+                [
+                    5,
+                    2
+                ],
+                [
+                    3,
+                    6
+                ],
+                [
+                    6,
+                    3
+                ],
+                [
+                    4,
+                    7
+                ],
+                [
+                    7,
+                    4
+                ],
+                [
+                    5,
+                    8
+                ],
+                [
+                    8,
+                    5
+                ],
+                [
+                    3,
+                    4
+                ],
+                [
+                    4,
+                    3
+                ],
+                [
+                    4,
+                    5
+                ],
+                [
+                    5,
+                    4
+                ],
+                [
+                    6,
+                    9
+                ],
+                [
+                    9,
+                    6
+                ],
+                [
+                    7,
+                    10
+                ],
+                [
+                    10,
+                    7
+                ],
+                [
+                    8,
+                    11
+                ],
+                [
+                    11,
+                    8
+                ]
+            ]
+        }
+    ],
+    "local": false,
+    "simulator": false,
+    "conditional": false,
+    "open_pulse": false,
+    "memory": true,
+    "max_shots": 8192,
+    "coupling_map": [
+        [
+            0,
+            3
+        ],
+        [
+            3,
+            0
+        ],
+        [
+            1,
+            4
+        ],
+        [
+            4,
+            1
+        ],
+        [
+            2,
+            5
+        ],
+        [
+            5,
+            2
+        ],
+        [
+            3,
+            6
+        ],
+        [
+            6,
+            3
+        ],
+        [
+            4,
+            7
+        ],
+        [
+            7,
+            4
+        ],
+        [
+            5,
+            8
+        ],
+        [
+            8,
+            5
+        ],
+        [
+            3,
+            4
+        ],
+        [
+            4,
+            3
+        ],
+        [
+            4,
+            5
+        ],
+        [
+            5,
+            4
+        ],
+        [
+            6,
+            9
+        ],
+        [
+            9,
+            6
+        ],
+        [
+            7,
+            10
+        ],
+        [
+            10,
+            7
+        ],
+        [
+            8,
+            11
+        ],
+        [
+            11,
+            8
+        ]
+    ],
+    "dynamic_reprate_enabled": true,
+    "supported_instructions": [
+        "cx",
+        "id",
+        "delay",
+        "measure",
+        "reset",
+        "rz",
+        "sx",
+        "u1",
+        "u2",
+        "u3",
+        "x",
+        "swap",
+        "water"
+    ],
+    "rep_delay_range": [
+        0,
+        500
+    ],
+    "default_rep_delay": 250,
+    "max_experiments": 75,
+    "sample_name": "Giraffe",
+    "n_registers": 1,
+    "credits_required": true,
+    "online_date": "2023-05-18T04:00:00+00:00",
+    "description": "12 qubit device Chiplet",
+    "dt": 0.2222222222222222,
+    "dtm": 0.2222222222222222,
+    "allow_q_object": true,
+    "meas_map": [
+        [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+        ]
+    ],
+    "multi_meas_enabled": false,
+    "quantum_volume": 16,
+    "url": "None",
+    "allow_object_storage": true
+}
