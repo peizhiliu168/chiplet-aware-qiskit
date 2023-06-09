@@ -7,7 +7,8 @@
         "rz",
         "sx",
         "x",
-        "cx"
+        "cx",
+        "water"
     ],
     "gates": [
         {
@@ -39,6 +40,16 @@
                 [
                     7
                 ],
+                [
+                    8
+                ]
+            ]
+        },
+        {
+            "name": "water",
+            "parameters": [],
+            "qasm_def": "gate water q { U(0, 0, 0) q; }",
+            "coupling_map": [
                 [
                     8
                 ]
@@ -458,7 +469,8 @@
         "u2",
         "u3",
         "x",
-        "swap"
+        "swap",
+        "water"
     ],
     "rep_delay_range": [
         0,

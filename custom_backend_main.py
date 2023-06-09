@@ -24,6 +24,8 @@ qc.swap(7,10)
 qc.h(8)
 qc.h(7)
 
+# target = backend.target.from_configuration(custom_name_mapping={"water":WaterGate()})
+# backend._target = target
 
 qc_basis = transpile(qc, backend=backend, optimization_level=3)
 img = qc_basis.draw(output='mpl')

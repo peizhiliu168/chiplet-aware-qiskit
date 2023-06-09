@@ -3,59 +3,31 @@ import numpy as np
 from qiskit import QuantumCircuit, transpile
 from qiskit.circuit import Parameter, Measure
 from qiskit.transpiler import Target, InstructionProperties
-from qiskit.circuit.library import UGate, RZGate, RXGate, RYGate, CXGate, CZGate, SwapGate
+from qiskit.circuit.library import UGate, RZGate, RXGate, RYGate, CXGate, CZGate, SwapGate, WaterGate, IGate
 
 
 from fake_chiplet import FakeChiplet
 
 backend = FakeChiplet()
 
-# Generate example circuit
-qc = QuantumCircuit(12, 12)
-
-qc.h(0)
-qc.x(1)
-qc.h(0)
-qc.h(6)
-
-qc.h(8)
-qc.swap(8,11)
-qc.swap(7,10)
-qc.h(8)
-qc.h(7)
-
-
-qc_basis = transpile(qc, backend=backend, optimization_level=3)
-img = qc_basis.draw(output='mpl')
-img.savefig("circuit1.png")
-
-qc_basis = transpile(qc_basis, 
-                     backend=backend, 
-                     optimization_level=3, 
-                     initial_layout=[0,1,2,3,4,5,6,8,7,9, 11, 10])
-# [0,6,2,10,8,7,1,5,4,11,3,9]
-img = qc_basis.draw(output='mpl')
-img.savefig("circuit2.png")
-
 qc1 = QuantumCircuit(12)
-qc1.i(0)
-qc1.i(1)
-custom = qc1.to_gate().control(2)
 
+qc1.watergate(8)
+qc1.h(0)
+qc1.h(8)
+qc1.swap(8,11)
+qc1.swap(7,10)
+qc1.h(8)
+qc1.h(7)
 
-qc1.watergate1(9,6)
-qc1.watergate1(1,2)
+print("iGate def: ", IGate().definition)
+print(backend.instructions)
 
-target = backend.target.from_configuration(custom_name_mapping={"watergate1":WaterGate1()})
-backend._target = target
+# target = backend.target.from_configuration(custom_name_mapping={"water":WaterGate()})
+# backend._target = target
 
-qc_basis = transpile(qc1, backend=backend,#range(9)) + [9,10,11],
-                     optimization_level=3)
+qc_basis = transpile(qc1, backend=backend,
+                     optimization_level=0)
 img = qc_basis.draw(output='mpl')
 
 img.savefig("circuit2.png")
-
-from qiskit.visualization import plot_circuit_layout
-
-img = plot_circuit_layout(qc_basis)
-img.savefig("layout.png")

@@ -2196,6 +2196,27 @@
                 }
             ],
             "name": "swap11_8"
+        },
+        {
+            "qubits": [
+                8
+            ],
+            "gate": "water",
+            "parameters": [
+                {
+                    "date": "2021-01-20T03:30:10-05:00",
+                    "name": "gate_error",
+                    "unit": "",
+                    "value": 0.0
+                },
+                {
+                    "date": "2021-01-17T03:30:10-05:00",
+                    "name": "gate_length",
+                    "unit": "ns",
+                    "value": 1.0
+                }
+            ],
+            "name": "water8"
         }
     ],
     "general": [

@@ -21,6 +21,6 @@ class FakeChiplet(fake_backend.FakeBackendV2):
     
     dirname = os.path.dirname(__file__)
     print(dirname)
-    conf_filename = "conf_chiplet.json"
-    props_filename = "props_chiplet.json"
+    conf_filename = "custom_backend/conf_chiplet.json"
+    props_filename = "custom_backend/props_chiplet.json"
     backend_name = "fake_chiplet"
